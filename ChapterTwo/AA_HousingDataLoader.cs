@@ -75,7 +75,7 @@ namespace ChapterTwo
             {
                 if (!reader.Entry.IsDirectory)
                 {
-                    reader.WriteEntryToDirectory(extractPath, new  SharpCompress.Common.ExtractionOptions()
+                    reader.WriteEntryToDirectory(extractPath, new SharpCompress.Common.ExtractionOptions()
                     {
                         ExtractFullPath = true,
                         Overwrite = true
@@ -129,5 +129,14 @@ namespace ChapterTwo
 
         //create an ID page 57
         public long Id => (long)(Longitude * 1000 + Latitude);
+
+        // create category page 58
+        public int? IncomeCategory
+        {
+            get
+            {
+                return AD_Cut.Cut<int>(MedianIncome.HasValue ? (double)MedianIncome : 0, [1.5, 3.0, 4.5, 6, float.MaxValue], [1, 2, 3, 4, 5]);
+            }
+        }
     }
 }
