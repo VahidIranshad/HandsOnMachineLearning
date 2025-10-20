@@ -126,5 +126,8 @@ namespace ChapterTwo
 
         [Name("median_house_value")]
         public float? MedianHouseValue { get; set; }
+
+        //create an ID page 57
+        public long Id => (long)(Longitude * 1000 + Latitude);
     }
 }

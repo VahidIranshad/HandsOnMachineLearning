@@ -30,5 +30,26 @@
 
             return (trainSet, testSet);
         }
+        public static (List<T> Train, List<T> Test) TrainTestSplitById<T>(
+    IReadOnlyList<T> data,
+    double testSize,
+    Func<T, long> idSelector,
+    int? randomSeed = null) // e.g., x => x.Id
+        {
+            if (testSize <= 0 || testSize >= 1)
+                throw new ArgumentException("testSize must be between 0 and 1.");
+
+
+            var rng = randomSeed.HasValue ? new Random(randomSeed.Value) : new Random();
+            var shuffled = data.OrderBy(idSelector).ToList();
+
+            int testCount = (int)Math.Round(data.Count * testSize);
+            int trainCount = data.Count - testCount;
+
+            var trainSet = shuffled.Take(trainCount).ToList();
+            var testSet = shuffled.Skip(trainCount).Take(testCount).ToList();
+
+            return (trainSet, testSet);
+        }
     }
 }

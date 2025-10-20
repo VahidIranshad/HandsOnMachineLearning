@@ -72,7 +72,7 @@ namespace HandsOnMachineLearning.WindowsForm.ChapterTwo
 
 
 
-        public void CreateHistogramSimple(List<HousingRecord> housingData)
+        public void CreateHistogramSimple(List<object> housingData)
         {
             if (housingData == null || housingData.Count == 0) { return; }
 
