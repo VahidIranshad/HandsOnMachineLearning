@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChapterOne", "ChapterOne\Ch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandsOnMachineLearning.Console", "HandsOnMachineLearning.Console\HandsOnMachineLearning.Console.csproj", "{F0676C2C-EECA-417A-B7CC-688A4512B678}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChapterTwo", "ChapterTwo\ChapterTwo.csproj", "{AC2C9E41-6F40-40E6-823C-A8E80DFA5934}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandsOnMachineLearning.WindowsForm", "HandsOnMachineLearning.WindowsForm\HandsOnMachineLearning.WindowsForm.csproj", "{5EED2081-2786-4764-811F-46AF0187849F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{F0676C2C-EECA-417A-B7CC-688A4512B678}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F0676C2C-EECA-417A-B7CC-688A4512B678}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F0676C2C-EECA-417A-B7CC-688A4512B678}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC2C9E41-6F40-40E6-823C-A8E80DFA5934}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC2C9E41-6F40-40E6-823C-A8E80DFA5934}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC2C9E41-6F40-40E6-823C-A8E80DFA5934}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC2C9E41-6F40-40E6-823C-A8E80DFA5934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EED2081-2786-4764-811F-46AF0187849F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EED2081-2786-4764-811F-46AF0187849F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EED2081-2786-4764-811F-46AF0187849F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EED2081-2786-4764-811F-46AF0187849F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

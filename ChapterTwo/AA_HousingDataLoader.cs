@@ -1,7 +1,10 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
+using CsvHelper.Configuration.Attributes;
+using SharpCompress.Readers;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.IO.Compression;
-namespace ChapterOne
+namespace ChapterTwo
 {
     public class AA_HousingDataLoader
     {
@@ -66,9 +69,20 @@ namespace ChapterOne
 
         private void ExtractTar(string tarFilePath, string extractPath)
         {
-            // .NET doesn't have built-in tar support, so we'll use a simple approach
-            // For production code, consider using a library like SharpCompress
-            throw new NotImplementedException("Tar extraction requires additional library. See notes below.");
+            using var stream = File.OpenRead(tarFilePath);
+            using var reader = SharpCompress.Readers.ReaderFactory.Open(stream);
+            while (reader.MoveToNextEntry())
+            {
+                if (!reader.Entry.IsDirectory)
+                {
+                    reader.WriteEntryToDirectory(extractPath, new  SharpCompress.Common.ExtractionOptions()
+                    {
+                        ExtractFullPath = true,
+                        Overwrite = true
+                    });
+                }
+            }
+
         }
 
         private List<HousingRecord> ReadCsvData(string csvPath)
@@ -79,18 +93,38 @@ namespace ChapterOne
         }
     }
 
-    // Define the data structure (adjust properties based on actual CSV columns)
+    // 									
+
     public class HousingRecord
     {
-        public float Longitude { get; set; }
-        public float Latitude { get; set; }
-        public float HousingMedianAge { get; set; }
-        public float TotalRooms { get; set; }
-        public float TotalBedrooms { get; set; }
-        public float Population { get; set; }
-        public float Households { get; set; }
-        public float MedianIncome { get; set; }
+        [CsvHelper.Configuration.Attributes.Name("longitude")]
+        public float? Longitude { get; set; }
+
+        [Name("latitude")]
+        public float? Latitude { get; set; }
+
+        [Name("housing_median_age")]
+        public float? HousingMedianAge { get; set; }
+
+        [Name("total_rooms")]
+        public float? TotalRooms { get; set; }
+
+        [Name("total_bedrooms")]
+        public float? TotalBedrooms { get; set; }
+
+        [Name("population")]
+        public float? Population { get; set; }
+
+        [Name("households")]
+        public float? Households { get; set; }
+
+        [Name("median_income")]
+        public float? MedianIncome { get; set; }
+
+        [Name("ocean_proximity")]
         public string? OceanProximity { get; set; }
+
+        [Name("median_house_value")]
         public float? MedianHouseValue { get; set; }
     }
 }
